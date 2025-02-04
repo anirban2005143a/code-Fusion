@@ -11,7 +11,9 @@ function SignUpPage() {
   const [isload, setIsload] = useState(false);
   const navigate = useNavigate();
   const handleregister = async (e) => {
+    e.preventDefault()
     console.log("donnnnnnnnn")
+    setIsload(true)
     try {
       e.preventDefault();
       console.log(username, email, password);
@@ -119,16 +121,15 @@ function SignUpPage() {
               />
             </div>
             <button
-              onClick={handleregister}
               type="submit"
               className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              Sign Up
+              { isload ? <div className=" w-full flex justify-center"> <div className="animate-spin w-8 h-8 border-2 border-white border-dotted rounded-full "></div></div> : "Sign Up"}
             </button>
             {isload ? (
               <>
                 {" "}
-                <div className=" w-[100vw] h-[100vh] fixed z-50 top-0 left-0 "
+                <div className=" w-[100vw] h-[100vh] fixed z-50 top-0 left-0 bg-[#655c5c30] backdrop-blur-[4px] "
                   style={{
                     display: "flex",
                     justifyContent: "center",

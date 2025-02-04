@@ -212,7 +212,7 @@ const Navbar = (props) => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-[5px] bg-[#2020236b] z-50">
+        <div className="fixed w-[100vw] h-[100vh] inset-0 flex items-center justify-center backdrop-blur-[5px] bg-[#2020236b] z-50">
           <div className="bg-[#4b5563] p-8 rounded-lg shadow-2xl md:w-[600px] w-[97%] transform transition-all duration-300 ease-in-out hover:scale-100">
             <div className="flex justify-end">
 

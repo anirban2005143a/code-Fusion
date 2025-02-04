@@ -1,0 +1,36 @@
+{
+    "routes":[
+        {
+            "src" : "/",
+            "dest" : "/"
+        },
+        {
+            "src":"/about",
+            "dest" : "/"
+        },
+        {
+            "src":"/editor",
+            "dest" : "/"
+        },
+        {
+            "src":"/Signin",
+            "dest" : "/"
+        },
+        {
+            "src":"/Signup",
+            "dest" : "/"
+        },
+        {
+            "src":"/OTPverification",
+            "dest" : "/"
+        },
+        {
+            "src":"/mobilenumberverication",
+            "dest" : "/"
+        },
+        {
+            "src":"/ll",
+            "dest" : "/"
+        }
+    ]
+}

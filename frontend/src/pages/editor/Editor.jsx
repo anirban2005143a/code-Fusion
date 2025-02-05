@@ -394,16 +394,7 @@ const CodeEditor = () => {
 
       socket.on("errorMessage", (message) => {
         console.log(message);
-        toast.error(message, {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-        });
+        toast.error(message);
       });
 
       socket.on("codeChange", ({ newCode, name }) => {
@@ -441,16 +432,7 @@ const CodeEditor = () => {
 
   useEffect(() => {
     if (alertMessage !== "") {
-      toast.error(alertMessage, {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "dark",
-      });
+      toast.error(alertMessage);
     }
   }, [alertMessage]);
 

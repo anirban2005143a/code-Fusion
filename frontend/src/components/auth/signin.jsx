@@ -67,8 +67,8 @@ function SignInPage() {
     } catch (error) {
       console.log(error);
       toast.error(error.message)
-      error.response && error.response.data && toast.error(error.response.data.error);
-      error.response && error.response.data && toast.error(error.response.data.message);
+      error.response.data && toast.error(error.response.data.error);
+      error.response.data && toast.error(error.response.data.message);
       setIsload(false);
     }
   };

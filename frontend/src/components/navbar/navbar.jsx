@@ -278,16 +278,7 @@ const Navbar = (props) => {
                       if (roomId.length === 11) {
                         navigate(`/editor?${roomId}`)
                       } else {
-                        toast.error('Enter Valid room id', {
-                          position: "top-right",
-                          autoClose: 5000,
-                          hideProgressBar: false,
-                          closeOnClick: false,
-                          pauseOnHover: true,
-                          draggable: true,
-                          progress: undefined,
-                          theme: "dark",
-                        });
+                        toast.error('Enter Valid room id');
                       }
                     }}
                     className="flex flex-col justify-center items-center max-w-sm mx-auto">

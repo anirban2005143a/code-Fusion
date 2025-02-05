@@ -191,28 +191,40 @@ const checkingotp = async (req, res) => {
 };
 
 const languageVersionMap = {
-  nodejs: "0", // Use "nodejs" instead of "javascript"
-  javascript: "0", // Redirected to "nodejs"
-  typescript: "4",
-  python: "3",
-  java: "3",
-  c: "5",
-  cpp: "2", // Redirect to cpp17
-  cpp17: "2",
-  ruby: "2",
-  php: "3",
-  go: "3",
-  rust: "0",
-  kotlin: "2",
-  swift: "3",
-  r: "3",
-  perl: "3",
-  dart: "3",
-  haskell: "3",
-  xml: "0",
-  yaml: "0",
-  html: "0",
-  shell: "0",
+  nodejs: "4", // JavaScript uses Node.js (latest stable version)
+  javascript: "4", // Redirected to "nodejs"
+  typescript: "3", // TypeScript (latest stable version)
+  python: "3", // Python 3.x (latest stable version)
+  python2: "2", // Python 2.7.x
+  java: "3", // JDK 11 (default)
+  c: "0", // GCC compiler (latest stable version)
+  cpp: "0", // GCC compiler (latest stable version)
+  cpp17: "0", // Redirect to "cpp"
+  ruby: "0", // Ruby (latest stable version)
+  php: "3", // PHP (latest stable version)
+  go: "3", // Go (latest stable version)
+  rust: "3", // Rust (latest stable version)
+  kotlin: "2", // Kotlin (latest stable version)
+  swift: "3", // Swift (latest stable version)
+  r: "3", // R (latest stable version)
+  perl: "0", // Perl (latest stable version)
+  dart: "3", // Dart (latest stable version)
+  haskell: "0", // Haskell (latest stable version)
+  bash: "0", // Bash shell scripting
+  csharp: "3", // .NET Core (latest stable version)
+  elixir: "3", // Elixir (latest stable version)
+  erlang: "3", // Erlang (latest stable version)
+  clojure: "3", // Clojure (latest stable version)
+  lua: "3", // Lua (latest stable version)
+  objc: "3", // Objective-C (latest stable version)
+  pascal: "3", // Pascal (latest stable version)
+  octave: "3", // Octave (latest stable version)
+  fortran: "3", // Fortran (latest stable version)
+  cobol: "3", // COBOL (latest stable version)
+  xml: "0", // XML (no versioning)
+  yaml: "0", // YAML (no versioning)
+  html: "0", // HTML (no versioning)
+  shell: "0", // Shell scripting (Bash)
 };
 
 const languageAliasMap = {

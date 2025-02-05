@@ -5,7 +5,6 @@ import { RiBarChartHorizontalLine } from "react-icons/ri";
 import "react-toastify/dist/ReactToastify.css";
 import logo from "../../assets/logo.png"
 import userImg from "../../assets/user.png"
-import DropdownMenu from "../dropdown/DropDown";
 
 const Navbar = (props) => {
 

@@ -4,7 +4,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import * as monaco from "monaco-editor";
 import axios from "axios"
 import aiimg from "../../assets/aiIMg.png"
-import crossImg from "../../assets/cross.png"
 import gsap from "gsap";
 
 // Auto complete for languages
@@ -32,7 +31,6 @@ import NavigationPanel from "./NavigationPanel";
 import { io } from "socket.io-client";
 import Navbar from "../../components/navbar/navbar";
 import Livechat from "../../components/live chat/livechat";
-import ErrorSuggestion from "../../components/errorSuggetion/ErrorSuggetion";
 import AiSupport from "../../components/aiSupport/AiSupport";
 import AutoSaveModal from "./AutoSaveModal";
 

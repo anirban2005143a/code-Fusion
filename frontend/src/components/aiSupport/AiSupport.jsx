@@ -1,8 +1,6 @@
 
 import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
-import { useEffect } from "react";
-import axios from "axios"
 import { ToastContainer, toast } from "react-toastify"
 
 const AiSupport = (props) => {

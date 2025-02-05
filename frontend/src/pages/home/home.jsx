@@ -7,7 +7,6 @@ import LandingPage from './landingPage'
 import Navbar from '../../components/navbar/navbar'
 import Features from './features'
 import MousePointer from '../../components/mousePointer/mousePointer'
-import RoomNoModal from '../../components/roomNoModal/roomNoModal';
 
 const Home = () => {
     

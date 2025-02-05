@@ -6,6 +6,9 @@ A lightweight code editor with real-time collaboration, AI-powered code assistan
 
 source code - https://github.com/anirban2005143a/codeEditor
 
+video demo - https://drive.google.com/file/d/1jxgk5UJYMwtnjDUV8IOSYDSnFgNThWHl/view?usp=sharing
+
+
 **Instructions to run**
   1. install node js and python in local system
   2. create a directory

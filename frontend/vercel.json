@@ -1,36 +1,17 @@
 {
-    "routes":[
-        {
-            "src" : "/",
-            "dest" : "/"
-        },
-        {
-            "src":"/about",
-            "dest" : "/"
-        },
-        {
-            "src":"/editor",
-            "dest" : "/"
-        },
-        {
-            "src":"/Signin",
-            "dest" : "/"
-        },
-        {
-            "src":"/Signup",
-            "dest" : "/"
-        },
-        {
-            "src":"/OTPverification",
-            "dest" : "/"
-        },
-        {
-            "src":"/mobilenumberverication",
-            "dest" : "/"
-        },
-        {
-            "src":"/ll",
-            "dest" : "/"
-        }
-    ]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "redirects": [
+    {
+      "source": "/v1/account/sessions/oauth2/google",
+      "destination": "https://cloud.appwrite.io/v1/account/sessions/oauth2/google",
+      "statusCode": 307
+    },
+    {
+      "source": "/fail",
+      "destination": "/index.html",
+      "statusCode": 307
+    }
+  ]
 }

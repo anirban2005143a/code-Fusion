@@ -302,16 +302,7 @@ const CodeEditor = () => {
   const executeCode = async (code, input, language) => {
 
     try {
-      toast.success("Code is being executed", {
-        position: "top-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: false,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        theme: "light",
-      });
+      toast.success("Code is being executed");
       const result = await axios.post(
         `${import.meta.env.VITE_REACT_BACKEND_URL}/api/haxplore/user/Executingcode`,
         {
@@ -322,7 +313,7 @@ const CodeEditor = () => {
       );
       // console.log(result);
       if (result.data.error) {
-        setalertMessage(error.message)
+        setalertMessage(result.data.error)
       } else {
         const formattedOutput = result.data.output
           .split("\n")
@@ -339,16 +330,7 @@ const CodeEditor = () => {
           memory: result.data.memory,
           executionTime: result.data.cpuTime
         });
-        toast.success("Code executed succesfully", {
-          position: "top-right",
-          autoClose: 5000,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "light",
-        });
+        toast.success("Code executed succesfully");
         // console.log("Response updated:", result);
       }
 
@@ -913,9 +895,9 @@ const CodeEditor = () => {
         {/* status Code  */}
         <div className={`statusCode ${output.status === 200 ? " text-green-600 " : " text-red-700 "} `}>Status: {output.status}</div>
         {/* execution time  */}
-        <div className="executiontime text-white">Time: {output.executionTime}s</div>
+        <div className="executiontime text-white">Time: {output.executionTime || 0}s</div>
         {/* memory  */}
-        <div className="memory text-white">Memory: {output.memory}kb</div>
+        <div className="memory text-white">Memory: {output.memory || 0}kb</div>
       </div>
       <div
         id="output"

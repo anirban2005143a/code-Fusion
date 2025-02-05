@@ -32,12 +32,12 @@ const AiSupport = (props) => {
 
     // Handle mouse move to resize the sidebar
     const handleMouseMove = (e) => {
-        console.log("dfvfbvg")
+        // console.log("dfvfbvg")
         const newWidth = window.innerWidth - e.clientX;
         if (newWidth >= 200 && newWidth <= 600) {
             setSidebarWidth(newWidth);
         }
-        console.log(newWidth)
+        // console.log(newWidth)
     };
 
     // Handle mouse up to stop resizing
@@ -49,7 +49,7 @@ const AiSupport = (props) => {
 
     const handleGenerateCode = async () => {
         try {
-            console.log(`${import.meta.env.VITE_REACT_FLASK_URL}/generate_code`)
+            // console.log(`${import.meta.env.VITE_REACT_FLASK_URL}/generate_code`)
             setisLoading(true)
             const response = await fetch(`${import.meta.env.VITE_REACT_FLASK_URL}/generate_code`, {
                 method: "POST",
@@ -58,37 +58,19 @@ const AiSupport = (props) => {
                 },
                 body: JSON.stringify({ code_prompt: `${prompt} and the language is ${props.language}` }), // JSON payload
             });
-            console.log(response)
+            // console.log(response)
             setisLoading(false)
             if (!response.ok) {
-                console.log("error")
+                // console.log("error")
                 // throw new Error(`HTTP error! Status: ${response.status}`);
-                toast.error('HTTP error! Status: ${response.status}', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: false,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
+                toast.error(`HTTP error! Status: ${response.status}`);
             }
 
             const data = await response.json();
             console.log(data)
             if (data.error) {
-                console.log(data.error)
-                toast.error('Some error occure please try again', {
-                    position: "top-right",
-                    autoClose: 5000,
-                    hideProgressBar: false,
-                    closeOnClick: false,
-                    pauseOnHover: true,
-                    draggable: true,
-                    progress: undefined,
-                    theme: "light",
-                });
+                // console.log(data.error)
+                toast.error('Some error occure please try again');
             } else {
                 // formatCodeWithLineBreaks(data.generated_code)
                 const str = formatCodeWithLineBreaks(data.generated_code)
@@ -96,17 +78,8 @@ const AiSupport = (props) => {
             }
         } catch (err) {
             setisLoading(false)
-            toast.error(err.message, {
-                position: "top-right",
-                autoClose: 5000,
-                hideProgressBar: false,
-                closeOnClick: false,
-                pauseOnHover: true,
-                draggable: true,
-                progress: undefined,
-                theme: "light",
-            });
-            console.log(err.message);
+            toast.error(err.message);
+            // console.log(err.message);
         }
     };
 

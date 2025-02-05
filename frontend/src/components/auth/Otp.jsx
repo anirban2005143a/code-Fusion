@@ -34,7 +34,7 @@ const OTPPage = () => {
       toast.error("Invalid phone number or OTP.");
       return;
     }
-    console.log(phonenumber);
+    // console.log(phonenumber);
     try {
       let id = localStorage.getItem("itemhai");
       const response = await axios.post(
@@ -45,15 +45,16 @@ const OTPPage = () => {
           otp: enteredOtp,
         }
       );
-      console.log(response.data);
-      if (response.data.ans == "true"){
+      // console.log(response.data);
+      if (response.data.ans == "true") {
         toast.success(response.data.message);
         navigate("/editor");
       }
       else toast.error("Invalid OTP.");
     } catch (error) {
-      console.log(error)
-      toast.error(error.response.data.message);     
+      // console.log(error)
+      toast.error(error.message);
+      error.response.data && toast.error(error.response.data.message);
     }
   };
 

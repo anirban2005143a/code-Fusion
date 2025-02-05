@@ -6,7 +6,6 @@ import bcrypt from "bcrypt";
 import twilio from "twilio";
 import otpgenerator from "otp-generator";
 import axios from "axios"
-import { v4 as uuidv4 } from 'uuid';
 
 
 const RegisterUser = async (req, res) => {

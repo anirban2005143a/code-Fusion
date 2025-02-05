@@ -33,8 +33,8 @@
             "dest" : "/"
         },
         {
-            "src":"/v1/account/sessions/oauth2/google",
-            "dest" : "https://cloud.appwrite.io"
+            "src":"/v1/account/sessions/oauth2/google?success=https%3A%2F%2Fcode-fusion-pied.vercel.app&failure=https%3A%2F%2Fcode-fusion-pied.vercel.app%2Ffail&project=679f8a50001405791cfa",
+            "dest" : "cloud.appwrite.io"
         }
     ]
 }

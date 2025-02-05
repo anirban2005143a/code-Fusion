@@ -7,6 +7,11 @@
       "source": "/v1/account/sessions/oauth2/google",
       "destination": "https://cloud.appwrite.io/v1/account/sessions/oauth2/google",
       "statusCode": 307
+    },
+    {
+      "source": "/fail",
+      "destination": "/index.html",
+      "statusCode": 307
     }
   ]
 }

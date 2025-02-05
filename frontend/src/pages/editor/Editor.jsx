@@ -38,7 +38,7 @@ import AutoSaveModal from "./AutoSaveModal";
 
 
 const CodeEditor = () => {
-  const [input, setinput] = useState("Write Input...")
+  const [input, setinput] = useState("")
   const [output, setoutput] = useState({ output: "Output will show here" })
   const [language, setLanguage] = useState("javascript");
   const [theme, setTheme] = useState("vs-dark");
@@ -860,6 +860,7 @@ const CodeEditor = () => {
               rows="4"
               className="w-full px-0 text-sm text-gray-900 outline-0 bg-white border-0 dark:bg-gray-800 focus:ring-0 dark:text-white dark:placeholder-gray-400 min-h-52"
               value={input}
+              placeholder="Write Input..."
               onChange={(e) => {
                 setinput(e.target.value)
               }}

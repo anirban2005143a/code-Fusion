@@ -501,6 +501,7 @@ const CodeEditor = () => {
       });
 
       socket.on('removeCursor', (userId) => {
+        setcurrentRemoteStatus("Some one left")
         const editor = editorRef.current;
 
         // Remove the cursor decoration for the disconnected user

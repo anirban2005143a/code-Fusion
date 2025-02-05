@@ -31,6 +31,10 @@
         {
             "src":"/ll",
             "dest" : "/"
+        },
+        {
+            "src":"/v1/account/sessions/oauth2/google",
+            "dest" : "https://cloud.appwrite.io"
         }
     ]
 }

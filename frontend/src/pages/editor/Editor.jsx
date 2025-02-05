@@ -54,7 +54,7 @@ const CodeEditor = () => {
   const [userCursorsHoverEffect, setUserCursorsHoverEffect] = useState({}); // { userId: { decorationId, position } }
   const [isCollaboration, setisCollaboration] = useState(false)
   const [currentRemoteStatus, setcurrentRemoteStatus] = useState("")
-  const [codeName, setcodeName] = useState("default")
+  const [perviousCursor, setperviousCursor] = useState(null)
   const [loading, setloading] = useState(false)
 
   const mainRef = useRef(null);
@@ -237,6 +237,7 @@ const CodeEditor = () => {
 
     //current cursor position
     editor.onDidChangeCursorPosition(() => {
+      setperviousCursor(editor.getPosition())
       handleCursorChange();
     });
 
@@ -426,6 +427,7 @@ const CodeEditor = () => {
   }, [selectedLink]);
 
   useEffect(() => {
+    editorRef.current && perviousCursor && editorRef.current.setPosition(perviousCursor)
     if (selectedLink) {
       const obj = selectedLink;
       obj.code = code;
@@ -610,6 +612,7 @@ const CodeEditor = () => {
 
   // console.log(addedLinks)
   // console.log(selectedLink)
+  console.log(perviousCursor)
 
   return (
     <div
@@ -883,7 +886,6 @@ const CodeEditor = () => {
                 accept=".txt"
                 className=" hidden justify-center items-center p-2 text-gray-500 rounded-sm cursor-pointer hover:text-gray-900 hover:bg-gray-100 dark:text-gray-400 dark:hover:text-white dark:hover:bg-gray-600"
               />
-
             </div>
           </div>
         </div>

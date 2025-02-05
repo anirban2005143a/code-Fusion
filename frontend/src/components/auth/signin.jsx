@@ -29,6 +29,8 @@ function SignInPage() {
       localStorage.setItem("islogin" , "true")
     } catch (error) {
       localStorage.setItem("islogin" , "false")
+      toast.error(error.message)
+      error.response && error.response.data && toast.error(error.response.data.error);
       console.error("Error during the login process:", error);
     }
   };
@@ -65,9 +67,7 @@ function SignInPage() {
     } catch (error) {
       console.log(error);
       toast.error(error.message)
-      if (error.response && error.response.data.message) {
-        toast.error(error.response.data.message);
-      } 
+      error.response && error.response.data && toast.error(error.response.data.error);
       setIsload(false);
     }
   };

@@ -1,40 +1,12 @@
 {
-    "routes":[
-        {
-            "src" : "/",
-            "dest" : "/"
-        },
-        {
-            "src":"/about",
-            "dest" : "/"
-        },
-        {
-            "src":"/editor",
-            "dest" : "/"
-        },
-        {
-            "src":"/Signin",
-            "dest" : "/"
-        },
-        {
-            "src":"/Signup",
-            "dest" : "/"
-        },
-        {
-            "src":"/OTPverification",
-            "dest" : "/"
-        },
-        {
-            "src":"/mobilenumberverication",
-            "dest" : "/"
-        },
-        {
-            "src":"/ll",
-            "dest" : "/"
-        },
-        {
-            "src":"/v1/account/sessions/oauth2/google?success=https%3A%2F%2Fcode-fusion-pied.vercel.app&failure=https%3A%2F%2Fcode-fusion-pied.vercel.app%2Ffail&project=679f8a50001405791cfa",
-            "dest" : "cloud.appwrite.io"
-        }
-    ]
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ],
+  "redirects": [
+    {
+      "source": "/v1/account/sessions/oauth2/google",
+      "destination": "https://cloud.appwrite.io/v1/account/sessions/oauth2/google",
+      "statusCode": 307
+    }
+  ]
 }

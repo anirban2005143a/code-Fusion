@@ -300,7 +300,8 @@ const CodeEditor = () => {
 
   //function for execute code and get output
   const executeCode = async (e , code, input, language) => {
-    e.target.innerHTML = <FaSpinner className="animate-spin mr-2"/>
+    e.target.disabled = true
+    e.target.innerHTML = "Executing"
     try {
       toast.success("Code is being executed");
       const result = await axios.post(
@@ -344,6 +345,7 @@ const CodeEditor = () => {
       });
       setalertMessage(error.message)
     }finally{
+      e.target.disabled = false
       e.target.innerHTML = "Execute"
     }
   };

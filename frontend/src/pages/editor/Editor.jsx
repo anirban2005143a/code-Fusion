@@ -838,7 +838,7 @@ const CodeEditor = () => {
           </div>
           <div className="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600 border-gray-200">
             <button
-              onClick={() => {
+              onClick={(e) => {
                 executeCode(e ,code, input, language);
               }}
               id="executeCode"

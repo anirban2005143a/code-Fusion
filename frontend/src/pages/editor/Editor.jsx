@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import MonacoEditor from "@monaco-editor/react";
 import { ToastContainer, toast } from 'react-toastify';
+import { FaSpinner } from "react-icons/fa";
 import * as monaco from "monaco-editor";
 import axios from "axios"
 import aiimg from "../../assets/aiIMg.png"
@@ -298,8 +299,8 @@ const CodeEditor = () => {
   }
 
   //function for execute code and get output
-  const executeCode = async (code, input, language) => {
-
+  const executeCode = async (e , code, input, language) => {
+    e.target.innerHTML = <FaSpinner className="animate-spin mr-2"/>
     try {
       toast.success("Code is being executed");
       const result = await axios.post(
@@ -342,6 +343,8 @@ const CodeEditor = () => {
         executionTime: 0
       });
       setalertMessage(error.message)
+    }finally{
+      e.target.innerHTML = "Execute"
     }
   };
 
@@ -836,10 +839,11 @@ const CodeEditor = () => {
           <div className="flex items-center justify-between px-3 py-2 border-t dark:border-gray-600 border-gray-200">
             <button
               onClick={() => {
-                executeCode(code, input, language);
+                executeCode(e ,code, input, language);
               }}
+              id="executeCode"
               type="submit"
-              className="inline-flex items-center py-2.5 px-4 text-md font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
+              className=" cursor-pointer inline-flex items-center py-2.5 px-4 text-md font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 dark:focus:ring-blue-900 hover:bg-blue-800"
             >
               Execute
             </button>

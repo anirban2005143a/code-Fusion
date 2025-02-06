@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import MonacoEditor from "@monaco-editor/react";
 import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 import { FaSpinner } from "react-icons/fa";
 import * as monaco from "monaco-editor";
 import axios from "axios"

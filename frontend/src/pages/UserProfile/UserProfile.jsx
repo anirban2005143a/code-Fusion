@@ -5,6 +5,7 @@ import UserGallery from './UserGallery';
 import UserFooter from './UserFooter';
 import Navbar from '../../components/navbar/navbar';
 import { ToastContainer, toast } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios"
 
 function UserProfile() {

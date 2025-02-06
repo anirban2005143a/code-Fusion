@@ -1,6 +1,7 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { gsap } from 'gsap';
 import { ToastContainer, toast } from "react-toastify"
+import "react-toastify/dist/ReactToastify.css";
 
 const UserGallery = () => {
   const galleryRef = useRef(null);

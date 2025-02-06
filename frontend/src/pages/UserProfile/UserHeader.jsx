@@ -25,8 +25,8 @@ const UserHeader = (props) => {
         alt="User Avatar"
         className="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white dark:border-slate-800 shadow-lg"
       />
-      <h1 className="text-3xl font-bold flex justify-center">{props.userDetails.name || <FaSpinner className=' animate-spin mr-2'/> }</h1>
-      <p className="text-gray-600 dark:text-gray-400 flex justify-center">{props.userDetails.email || <FaSpinner className=' animate-spin mr-2'/> }</p>
+      <h1 className="text-3xl font-bold flex justify-center pt-2">{props.userDetails.name || <FaSpinner className=' animate-spin mr-2'/> }</h1>
+      <p className="text-gray-600 dark:text-gray-400 flex justify-center pt-2">{props.userDetails.email || <FaSpinner className=' animate-spin mr-2'/> }</p>
     </div>
   );
 };

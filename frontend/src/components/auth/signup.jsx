@@ -32,9 +32,11 @@ function SignUpPage() {
       console.log(response);
     } catch (error) {
       console.log(error);
-      toast.error(error.message)
-      error.response.data && error.response.data.message && toast.error(error.response.data.message);
-      error.response.data && error.response.data.error && toast.error(error.response.data.error);
+
+      if (error.response && error.response.data && error.response.data.message) toast.error(error.response.data.message);
+      else if (error.response && error.response.data && error.response.data.error) toast.error(error.response.data.error);
+      else toast.error(error.message)
+      
       setIsload(false);
     }
   };
@@ -124,7 +126,7 @@ function SignUpPage() {
               type="submit"
               className="w-full px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
-              { isload ? <div className=" w-full flex justify-center"> <div className="animate-spin w-8 h-8 border-2 border-white border-dotted rounded-full "></div></div> : "Sign Up"}
+              {isload ? <div className=" w-full flex justify-center"> <div className="animate-spin w-8 h-8 border-2 border-white border-dotted rounded-full "></div></div> : "Sign Up"}
             </button>
             {isload ? (
               <>

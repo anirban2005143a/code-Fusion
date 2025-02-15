@@ -57,7 +57,7 @@ const UserGallery = () => {
         {allCodes.map((item) => (
           <div
             key={item._id}
-            className="bg-white md:w-[30%] sm:w-[40%] w-full dark:bg-slate-800 rounded-lg shadow-lg overflow-hidden m-4 p-4"
+            className="bg-white md:w-[30%] sm:w-[40%] w-full h-[300px] overflow-auto dark:bg-slate-800 rounded-lg shadow-lg m-4 p-4"
           >
             <h3 className=' text-xl font-bold text-white py-1'>{item.title}</h3>
             <p className='text-sm font-light py-1'>{item.createdAt.split("T")[0]}</p>

@@ -53,7 +53,11 @@ function App() {
       element: <CreateRoom />,
     },{
       path: "/user/profile",
-      element: <UserProfile />,
+      element: (
+        <Privateroutes setisLogin={setisLogin}>
+          <UserProfile />
+        </Privateroutes>
+      ),
     },
   ]);
 

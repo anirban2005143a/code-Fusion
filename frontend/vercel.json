@@ -6,6 +6,15 @@
       "statusCode": 307
     },
     {
+  "redirects": [
+    {
+      "source": "/auth/callback",
+      "destination": "/auth/callback",
+      "permanent": false
+    }
+  ]
+},
+    {
       "source": "/fail",
       "destination": "/index.html",
       "statusCode": 307

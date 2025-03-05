@@ -5,6 +5,11 @@
       "destination": "https://cloud.appwrite.io/v1/account/sessions/oauth2/google",
       "statusCode": 307
     },
+     {
+      "source": "/auth/callback",
+      "destination": "/auth/callback",
+      "permanent": false
+    },
     {
       "source": "/fail",
       "destination": "/index.html",

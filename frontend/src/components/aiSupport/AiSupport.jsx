@@ -2,6 +2,8 @@
 import React, { useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ToastContainer, toast } from "react-toastify"
+import { ImSpinner } from "react-icons/im";
+import { IoMdCloseCircle } from "react-icons/io";
 
 const AiSupport = (props) => {
 
@@ -59,24 +61,23 @@ const AiSupport = (props) => {
             // console.log(response)
             setisLoading(false)
             if (!response.ok) {
-                // console.log("error")
-                // throw new Error(`HTTP error! Status: ${response.status}`);
-                toast.error(`HTTP error! Status: ${response.status}`);
+                showToast(`HTTP error! Status: ${response.status}`, 1)
             }
 
             const data = await response.json();
             console.log(data)
             if (data.error) {
-                // console.log(data.error)
-                toast.error('Some error occure please try again');
+                showToast('some error occure please try again', 1)
             } else {
                 // formatCodeWithLineBreaks(data.generated_code)
+                showToast('Code generated successfully', 0)
                 const str = formatCodeWithLineBreaks(data.generated_code)
                 setoutput(str);
             }
-        } catch (err) {
+        } catch (error) {
             setisLoading(false)
-            toast.error(err.message);
+            if (error.response && error.response.data) showToast(error.response.data.message, 1)
+            else showToast(error.message, 1)
             // console.log(err.message);
         }
     };
@@ -90,61 +91,96 @@ const AiSupport = (props) => {
         ));
     };
 
+    //function to show alert
+    const showToast = (message, err) => {
+        if (err) {
+            toast.error(message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        } else {
+            toast.success(message, {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
+        }
+    }
+
     return (
-
-        <div
-            ref={sidebarRef}
-            style={{ width: `${sidebarWidth}px` }}
-            id="AiSupport"
-            className=" rounded-xl z-40 fixed top-[15vh] right-0 min-h-[50vh] max-h-[70vh] overflow-x-visible overflow-y-auto bg-gray-900 shadow-lg transform translate-x-full"
-        >
+        <>
             <ToastContainer />
-            <div className=" relative w-full h-full py-15 ">
-
-                {/* Resize handle */}
+            <div id="ai-support">
                 <div
-                    onMouseDown={handleMouseDown}
-                    className="absolute top-0 me-2 -left-[8px] w-3 h-full cursor-ew-resize bg-gray-700 hover:bg-blue-500"
-                />
-                {/* Close button */}
-                <button button
-                    onClick={closeSidebar}
-                    className=" cursor-pointer absolute font-light m-3 top-0 right-2 w-12 h-12 text-white text-4xl pb-2 rounded-full bg-slate-800 hover:bg-slate-600"
+                    ref={sidebarRef}
+                    style={{ width: `${sidebarWidth}px` }}
+                    id="AiSupport"
+                    className=" rounded-xl z-40 fixed top-[90px] right-0 min-h-[50vh] h-[70vh] max-h-[400px] overflow-x-visible overflow-hidden bg-gray-900 shadow-lg transform translate-x-full"
                 >
-                    x
-                </button >
+                    <div className=" absolute h-full w-full overflow-auto ">
 
-                {/* Text area */}
-                <div className="p-4" >
-                    <textarea
-                        className="w-full h-32 p-2 bg-gray-800 text-white rounded min-h-20"
-                        placeholder="Type something..."
-                        value={prompt}
-                        onChange={(e) => {
-                            setprompt(e.target.value)
-                        }}
-                    />
+                        {/* Close button */}
+                        <button button
+                            onClick={closeSidebar}
+                            className=" z-10 cursor-pointer fixed font-light m-3 top-0 right-0 w-12 h-12 text-white text-4xl pb-2 rounded-full "
+                        >
+                            <IoMdCloseCircle />
+                        </button >
+
+                        <div className=" relative w-full h-auto py-15  ">
+
+                            {/* Resize handle */}
+                            <div
+                                onMouseDown={handleMouseDown}
+                                className="absolute top-0 me-2 -left-[8px] w-3 h-full cursor-ew-resize bg-gray-700 hover:bg-blue-500"
+                            />
+
+                            {/* Text area */}
+                            <div className="p-4" >
+                                <textarea
+                                    className="w-full h-32 p-2 bg-gray-800 text-white rounded min-h-20"
+                                    placeholder="Type something..."
+                                    value={prompt}
+                                    onChange={(e) => {
+                                        setprompt(e.target.value)
+                                    }}
+                                />
+                            </div >
+
+                            {/* Send button */}
+                            <div className="p-4" >
+                                <button onClick={() => {
+                                    if (prompt && prompt !== "") handleGenerateCode()
+                                }}
+                                    disabled={isLoading}
+                                    className="w-full bg-blue-500 text-white px-4 py-2 rounded cursor-pointer">
+                                    {isLoading ? <ImSpinner className=" animate-spin text-xl mx-auto" /> : "Ask AI"}
+                                </button>
+                            </div >
+
+                            {/* output from ai  */}
+                            {output && output !== "" && <div className="p-2 text-white rounded-2xl border-2 border-slate-700 mx-2">
+                                {output}
+                            </div>}
+
+                        </div>
+
+                    </div>
                 </div >
-
-                {/* Send button */}
-                <div className="p-4" >
-                    <button onClick={() => {
-                        if (prompt && prompt !== "") handleGenerateCode()
-                    }}
-                        disabled={isLoading}
-                        className="w-full bg-blue-500 text-white px-4 py-2 rounded cursor-pointer">
-                        {isLoading ? "Fetching" : "Ask AI"}
-                    </button>
-                </div >
-
-                {/* output from ai  */}
-                {output && output !== "" && <div className="p-2 text-white rounded-2xl border-2 border-slate-700 mx-2">
-                    {output}
-                </div>}
 
             </div>
-        </div >
-
+        </>
     );
 };
 

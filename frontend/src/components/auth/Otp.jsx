@@ -1,7 +1,6 @@
 import React, { useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 const OTPPage = () => {
   const [otp, setOtp] = useState(["", "", "", "", "", ""]);

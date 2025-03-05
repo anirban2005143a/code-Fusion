@@ -5,13 +5,40 @@ import UserGallery from './UserGallery';
 import UserFooter from './UserFooter';
 import Navbar from '../../components/navbar/navbar';
 import { ToastContainer, toast } from 'react-toastify';
-import "react-toastify/dist/ReactToastify.css";
 import axios from "axios"
 
 function UserProfile() {
   const appRef = useRef(null);
 
   const [userDetails, setuserDetails] = useState({})
+
+  
+    //function to show alert
+    const showToast = (message, err) => {
+      if (err) {
+        toast.error(message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      } else {
+        toast.success(message, {
+          position: "top-right",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: false,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "dark",
+        });
+      }
+    }
 
   const fetchUserDetails = async () => {
     try {
@@ -24,8 +51,9 @@ function UserProfile() {
       );
       setuserDetails(res.data.userDetails)
       console.log(res)
+      // showToast("User details fetched successfully", 0)
     } catch (error) {
-      toast.error(error.message);
+      showToast(error.message, 1)
       console.log(error)
     }
 

@@ -19,8 +19,8 @@ model = genai.GenerativeModel(
 )
 
 @app.route('/')
-def index():
-    return "ANIRBAN"
+def home():
+    return "Hello from Flask on Vercel!"
 
 
 @app.route('/generate_code', methods=['POST'])

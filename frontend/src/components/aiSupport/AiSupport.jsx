@@ -70,7 +70,7 @@ const AiSupport = (props) => {
                 showToast('some error occure please try again', 1)
             } else {
                 // formatCodeWithLineBreaks(data.generated_code)
-                showToast('Code generated successfully', 0)
+                // showToast('Code generated successfully', 0)
                 const str = formatCodeWithLineBreaks(data.generated_code)
                 setoutput(str);
             }

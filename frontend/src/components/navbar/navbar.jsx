@@ -62,7 +62,7 @@ const Navbar = (props) => {
 
   return (
     <>
-      <nav id="navbar" className="fixed top-0 left-0 w-full z-50 border-gray-200 ">
+      <nav id="navbar" className="fixed top-0 left-0 w-full z-100 border-gray-200 ">
         <div className="w-full flex items-center justify-between p-4">
           <Link to="/" className=" cursor-pointer flex items-center ">
             <img
@@ -107,9 +107,9 @@ const Navbar = (props) => {
             </ul>
           </div>
 
-          <div className=" flex items-center md:order-2">
+          <div className=" flex items-center md:order-2 relative z-100">
             {/* user profile  */}
-            <div className="relative md:px-5 px-2">
+            <div className="relative md:px-5 px-2 z-100">
               <button
                 onClick={toggleUserDropdown}
                 className=" text-slate-200 md:px-4 px-0 py-2 rounded-lg cursor-pointer transition-colors "

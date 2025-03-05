@@ -14,6 +14,8 @@ function SignInPage() {
     try {
       const response = await axios.get(`${import.meta.env.VITE_REACT_BACKEND_URL}/api/haxplore/user/tokengeneration`);
 
+  
+
       localStorage.setItem("token", response.data.jwttoken);
 
       console.log("Token saved in localStorage.");
@@ -26,6 +28,17 @@ function SignInPage() {
         `${import.meta.env.VITE_REACT_CLIENT_URL}/fail`
       );
       localStorage.setItem("islogin", "true")
+
+      try {
+        //get login user details from appwrite
+        const user = await account.get();
+        // localStorage.setItem("userdetails", JSON.stringify(user));
+        console.log("User details:", user);
+        return user; // Returns user data
+      } catch (error) {
+        console.error("Failed to get user details:", error);
+      }
+      
     } catch (error) {
       localStorage.setItem("islogin", "false")
 

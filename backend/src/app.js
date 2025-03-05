@@ -22,5 +22,10 @@ app.use(
 );
 import userRouter from "./routes/user.routes.js";
 app.use("/api/haxplore/user",userRouter);
+
+app.use("/" , (req , res) => {
+  res.send("Hello World");
+});
+
 console.log("done");
 export { app };

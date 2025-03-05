@@ -1,0 +1,38 @@
+app = "code-fusion-flask"  # Replace with your app's name
+
+[build]
+  image = "flyio/python:3.9"  # Base image for Python 3.9
+
+[env]
+  PORT = "8080"  # Flask will run on this port
+
+[http_service]
+  internal_port = 8080  # Internal port for the app
+  force_https = true    # Enforce HTTPS
+  auto_stop_machines = true
+  auto_start_machines = true
+  min_machines_running = 0
+
+[[services]]
+  http_checks = []
+  internal_port = 8080
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    handlers = ["http"]
+    port = 80  # External HTTP port
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443  # External HTTPS port
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"

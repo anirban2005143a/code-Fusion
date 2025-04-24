@@ -1,0 +1,21 @@
+config:
+  target: "http://localhost:3000"  # Change to your actual URL
+  phases:
+    - duration: 60  # 60 seconds
+      arrivalRate: 50  # 10 new users per second
+  payload:
+    path: "users.csv"
+    fields:
+      - email
+      - password
+  defaults:
+    headers:
+      content-type: application/json
+
+scenarios:
+  - flow:
+      - post:
+          url: "/api/haxplore/user/login"
+          json:
+            email: "{{ email }}"
+            password: "{{ password }}"

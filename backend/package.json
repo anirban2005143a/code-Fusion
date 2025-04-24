@@ -1,0 +1,35 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A backend system for Haxplore",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon -r dotenv/config src/index.js"
+  },
+  "author": "Vaibhav Aryan",
+  "license": "ISC",
+  "dependencies": {
+    "artillery": "^2.0.22",
+    "axios": "^1.7.9",
+    "bcrypt": "^5.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "http": "^0.0.1-security",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.9.7",
+    "otp-generator": "^4.0.1",
+    "redis": "^4.7.0",
+    "socket.io": "^4.8.1",
+    "twilio": "^5.4.3",
+    "uuid": "^11.0.5",
+    "ws": "^8.18.0",
+    "y-websocket": "^2.1.0",
+    "yjs": "^13.6.23"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

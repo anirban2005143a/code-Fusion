@@ -1,0 +1,36 @@
+@import "tailwindcss";
+
+/* @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap'); */
+
+body{
+  background-color: rgb(0, 0, 0);
+}
+
+.playfair-display-font {
+  letter-spacing: 1px;
+  background-image: linear-gradient(to right, #9795f0 0%, #fbc8d4 100%);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+}
+
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #505050; /* Color of the track */
+  border-radius: 10px; /* Border radius of the track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #383838; /* Color of the thumb */
+  border-radius: 10px; /* Border radius of the thumb */
+  border: 1.5px solid #505050; /* Padding around the thumb */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #282828; /* Color of the thumb on hover */
+}

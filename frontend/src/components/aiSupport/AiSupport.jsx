@@ -4,6 +4,8 @@ import { gsap } from "gsap";
 import { ToastContainer, toast } from "react-toastify"
 import { ImSpinner } from "react-icons/im";
 import { IoMdCloseCircle } from "react-icons/io";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import { oneDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 
 const AiSupport = (props) => {
 
@@ -16,8 +18,8 @@ const AiSupport = (props) => {
 
     // Function to close the sidebar
     const closeSidebar = () => {
-        setprompt("")
-        setoutput("")
+        // setprompt("")
+        // setoutput("")
         document.querySelector("#AiSupport").querySelector("textarea").value = ""
         gsap.to(sidebarRef.current, { x: "100%", duration: 0.5, ease: "power2.out" });
     };
@@ -56,7 +58,7 @@ const AiSupport = (props) => {
                 headers: {
                     "Content-Type": "application/json", // Set content type to JSON
                 },
-                body: JSON.stringify({ code_prompt: `${prompt} and the language is ${props.language}` }), // JSON payload
+                body: JSON.stringify({ code_prompt: `language : ${props.language}\n code:${prompt}` }), // JSON payload
             });
             // console.log(response)
             setisLoading(false)
@@ -71,8 +73,10 @@ const AiSupport = (props) => {
             } else {
                 // formatCodeWithLineBreaks(data.generated_code)
                 // showToast('Code generated successfully', 0)
+                console.log(typeof data.generated_code)
                 const str = formatCodeWithLineBreaks(data.generated_code)
-                setoutput(str);
+                // setoutput(str);
+                // setoutput(data.generated_code);
             }
         } catch (error) {
             setisLoading(false)
@@ -83,12 +87,9 @@ const AiSupport = (props) => {
     };
 
     const formatCodeWithLineBreaks = (str) => {
-        return str.split('\n').map((line, index) => (
-            <React.Fragment key={index}>
-                {line}
-                <br />
-            </React.Fragment>
-        ));
+        str = str.slice(3, str.length-2)
+        console.log(str)
+        setoutput(str)
     };
 
     //function to show alert
@@ -171,7 +172,9 @@ const AiSupport = (props) => {
 
                             {/* output from ai  */}
                             {output && output !== "" && <div className="p-2 text-white rounded-2xl border-2 border-slate-700 mx-2">
-                                {output}
+                                <SyntaxHighlighter language={props.language} style={oneDark}>
+                                    {output}
+                                </SyntaxHighlighter>
                             </div>}
 
                         </div>

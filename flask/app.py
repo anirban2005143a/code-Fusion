@@ -30,7 +30,7 @@ def generate_code():
     if not data or 'code_prompt' not in data:
         return jsonify({"error": "Invalid JSON data. 'code_prompt' is required."}), 400
 
-    code_prompt = "you are excelent in coding . Your task is to send response based on given code and prompt and send the code making important portion bold or highlighted . Don't send any other any comments except the correct code ." + data['code_prompt']
+    code_prompt = "You are a coding assistant. Given a programming language and an instruction or code snippet, respond with only the valid code in that language. Do not include any explanation, comments, or extra text. Wrap the code in a single code block with the correct language tag.Language:" + data['code_prompt']
 
     # Start the timer to measure response time
     st = time.time()

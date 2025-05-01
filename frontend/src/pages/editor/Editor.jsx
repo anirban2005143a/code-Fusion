@@ -611,7 +611,7 @@ const CodeEditor = () => {
 
   // console.log(addedLinks)
   // console.log(selectedLink)
-  console.log(perviousCursor)
+  // console.log(perviousCursor)
 
   return (
     <>

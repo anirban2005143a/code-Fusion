@@ -14,11 +14,6 @@
       "source": "/fail",
       "destination": "/index.html",
       "statusCode": 307
-    }, 
-    {
-      "source": "/api/*",
-      "destination": "https://cloud.appwrite.io/v1",
-      "statusCode": 307
     }
   ],
   "rewrites": [
